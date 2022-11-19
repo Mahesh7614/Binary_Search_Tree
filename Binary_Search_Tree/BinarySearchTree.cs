@@ -18,10 +18,14 @@ namespace Binary_Search_Tree
             while (current != null)
             {
                 parent = current;
-                if (current.Data.CompareTo(data) >= 0) 
+                if (current.Data.CompareTo(data) >= 0)
+                {
                     current = current.leftNode;
+                }
                 else if (data.CompareTo(current.Data) >= 0 )
+                {
                     current = current.rightNode;
+                }
                 else
                 {
                     Console.WriteLine($"{data} is already present in Binary Tree");
@@ -30,14 +34,20 @@ namespace Binary_Search_Tree
 
             Node<T> newNode = new Node<T>(data);
 
-            if (this.Root == null)
-                this.Root = newNode;
+            if (Root == null)
+            {
+                Root = newNode;
+            }
             else
             {
                 if (parent.Data.CompareTo(data) >= 0 )
+                {
                     parent.leftNode = newNode;
+                }
                 else
+                {
                     parent.rightNode = newNode;
+                }
             }
         }
         public void DisplayInorder(Node<T> parent)
@@ -53,6 +63,25 @@ namespace Binary_Search_Tree
         public void Size()
         {
             Console.Write($"\nThe Size of Binary Tree is : {size}\n");
+        }
+        public Node<T> Find(T data, Node<T> parent)
+        {
+            if (parent != null)
+            {
+                if (data.Equals(parent.Data))
+                {
+                    return parent;
+                }
+                if (parent.Data.CompareTo(data) >= 0)
+                {
+                    return Find(data, parent.leftNode);
+                }
+                else
+                {
+                    return Find(data, parent.rightNode);
+                }
+            }
+            return null;
         }
     }
 }

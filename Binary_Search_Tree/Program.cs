@@ -1,4 +1,6 @@
-﻿namespace Binary_Search_Tree
+﻿using System.Xml.Linq;
+
+namespace Binary_Search_Tree
 {
     public class Program
     {
@@ -18,6 +20,16 @@
             tree.Add(63);
             tree.Add(67);
             tree.Add(16);
+            int data = 63;
+            Node<int> node = tree.Find(data, tree.Root);
+            if (node == null)
+            {
+                Console.WriteLine($"{data} is not present in Binary Tree");
+            }
+            else
+            {
+                Console.WriteLine($"{node.Data} is Present in Binaray Tree");
+            }
 
             Console.WriteLine("********************** Elements in Binary Trees **********************");
             tree.DisplayInorder(tree.Root);
