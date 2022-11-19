@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Binary_Search_Tree
 {
-    class BinarySearchTree<T> where T : IComparable<T>
+    class BinarySearchTree<T> where T : IComparable
     {
         public Node<T> Root;
         private int size = 0;
